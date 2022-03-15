@@ -12,7 +12,7 @@ var score = 0
 
 func _ready():
 	randomize()
-	OS.set_current_screen(1)
+	OS.set_current_screen(0)
 	audio_list = get_audio_list(level)
 	name_list = audio_list
 	$CenterContainer/VBoxContainer/HBoxContainer2/Label.text = "Nível: " + str(level) + "\n" + "Pontos: " + str(score)
@@ -41,9 +41,8 @@ func sort_buttons(correct):
 	var buttons_list = $CenterContainer/VBoxContainer/HBoxContainer.get_children()
 	var sorted_button = buttons_list.pop_at(randi() % buttons_list.size())
 	correct_button = sorted_button
-	
-	
-	
+	sorted_button.set_modulate(Color(1, 1, 1, 1))
+		
 #	format label of button based on the sorted audio
 	correct.erase(0,correct.find("-")+1)
 	correct.erase(correct.find("."),correct.length())
@@ -56,11 +55,19 @@ func sort_buttons(correct):
 		if txt == int(correct):
 			txt += randi() % 3 + 1
 		i.text = str(txt)
+		i.set_modulate(Color(1, 1, 1, 1))
 	
 func check(button):
 	if button == correct_button:
+		button.set_modulate(Color(0, 1, 0, 1))
 		score += 1
+		$audioScore.play()
+		yield($audioScore,"finished")
 		update_score()
+	else:
+		button.set_modulate(Color(1, 0, 0, 1))
+		$audioError.play()
+		yield($audioError,"finished")
 	new_challenge()
 	
 func update_score():
@@ -68,6 +75,8 @@ func update_score():
 	
 	if score % 10 == 0:
 		level_up(1)
+		$audioLevelUp.play()
+		yield($audioLevelUp,"finished")
 		
 func level_up(incr):
 	level += incr
