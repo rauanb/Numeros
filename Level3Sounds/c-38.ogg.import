@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/c-38.ogg-38884f04676216012ddeadc8472d22f6.oggstr"
+
+[deps]
+
+source_file="res://Level3Sounds/c-38.ogg"
+dest_files=[ "res://.import/c-38.ogg-38884f04676216012ddeadc8472d22f6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

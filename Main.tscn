@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://UI/FONT50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/FONT100.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 90.0
+margin_top = 70.0
+margin_right = 1190.0
+margin_bottom = 650.0
+custom_constants/separation = 80
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 1100.0
+margin_bottom = 250.0
+custom_constants/separation = 100
+alignment = 1
+
+[node name="IgnoreButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 0
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 400.0
+margin_right = 700.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 800.0
+margin_right = 1100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 2 )
+text = "Nível: %s
+Pontos: %s"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 330.0
+margin_right = 1100.0
+margin_bottom = 580.0
+custom_constants/separation = 100
+
+[node name="Alt1Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+
+[node name="Alt2Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 400.0
+margin_right = 700.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+
+[node name="Alt3Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 800.0
+margin_right = 1100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+
+[node name="audioNum" type="AudioStreamPlayer" parent="."]
+
+[node name="audioScore" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_PlayButton_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt1Button" to="." method="_on_Alt1Button_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt2Button" to="." method="_on_Alt2Button_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt3Button" to="." method="_on_Alt3Button_button_up"]
