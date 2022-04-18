@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/b-6.ogg-56f79b31c26f29398c1a4d816014b142.oggstr"
+
+[deps]
+
+source_file="res://level1sounds/b-6.ogg"
+dest_files=[ "res://.import/b-6.ogg-56f79b31c26f29398c1a4d816014b142.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

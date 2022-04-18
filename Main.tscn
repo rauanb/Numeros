@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://UI/font50.tres" type="DynamicFont" id=2]
-[ext_resource path="res://UI/font100.tres" type="DynamicFont" id=3]
-[ext_resource path="res://UI/soundIcon.png" type="Texture" id=4]
-[ext_resource path="res://UI/soundIconH.png" type="Texture" id=5]
-[ext_resource path="res://UI/TransparentButton.tres" type="StyleBox" id=6]
-[ext_resource path="res://Sfx/Error.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sfx/LevelUp.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sfx/Score.wav" type="AudioStream" id=9]
-[ext_resource path="res://UI/wallpaper.jpg" type="Texture" id=10]
+[ext_resource path="res://ui/font50.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/font100.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/soundIcon.png" type="Texture" id=4]
+[ext_resource path="res://ui/soundIconH.png" type="Texture" id=5]
+[ext_resource path="res://sfx/error.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/levelup.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/score.wav" type="AudioStream" id=9]
+[ext_resource path="res://ui/wallpaper.jpg" type="Texture" id=10]
+[ext_resource path="res://ui/close.png" type="Texture" id=11]
+[ext_resource path="res://new_theme.tres" type="Theme" id=12]
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
@@ -17,6 +18,8 @@ default_font = ExtResource( 3 )
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
 theme = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -46,7 +49,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 49.0
 margin_top = 9.0
-margin_right = 1100.0
+margin_right = 1231.0
 margin_bottom = 710.0
 custom_constants/separation = 80
 alignment = 1
@@ -99,12 +102,18 @@ margin_right = 300.0
 margin_bottom = 251.0
 rect_min_size = Vector2( 300, 250 )
 focus_mode = 0
+theme = ExtResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Alt1Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Alt2Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 441.0
@@ -112,14 +121,20 @@ margin_right = 741.0
 margin_bottom = 251.0
 rect_min_size = Vector2( 300, 250 )
 focus_mode = 0
+theme = ExtResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
-text = "2"
 __meta__ = {
 "_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Alt2Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="Alt3Button" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
@@ -128,14 +143,20 @@ margin_right = 1182.0
 margin_bottom = 251.0
 rect_min_size = Vector2( 300, 250 )
 focus_mode = 0
+theme = ExtResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_styles/hover = ExtResource( 6 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 6 )
-custom_styles/normal = ExtResource( 6 )
-text = "3"
 __meta__ = {
 "_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Alt3Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="audioNum" type="AudioStreamPlayer" parent="."]
@@ -149,7 +170,16 @@ stream = ExtResource( 7 )
 [node name="audioLevelUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 203.0
+margin_bottom = 205.0
+texture_normal = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt1Button" to="." method="_on_Alt1Button_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt2Button" to="." method="_on_Alt2Button_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt3Button" to="." method="_on_Alt3Button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

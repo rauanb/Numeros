@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/d-43.ogg-abdc13ec82bff6190d70e591e7197389.oggstr"
+
+[deps]
+
+source_file="res://level3sounds/d-43.ogg"
+dest_files=[ "res://.import/d-43.ogg-abdc13ec82bff6190d70e591e7197389.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
