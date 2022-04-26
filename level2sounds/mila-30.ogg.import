@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mila-30.ogg-71e4438f9000a205248d0acb961435fc.oggstr"
+
+[deps]
+
+source_file="res://level2sounds/mila-30.ogg"
+dest_files=[ "res://.import/mila-30.ogg-71e4438f9000a205248d0acb961435fc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

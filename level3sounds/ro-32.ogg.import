@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ro-32.ogg-fce646b799dc650fce355f95d5d0719b.oggstr"
+
+[deps]
+
+source_file="res://level3sounds/ro-32.ogg"
+dest_files=[ "res://.import/ro-32.ogg-fce646b799dc650fce355f95d5d0719b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

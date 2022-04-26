@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ro-16.ogg-6788c6c4cb36e3014e5a50177b3ebdd2.oggstr"
+
+[deps]
+
+source_file="res://level2sounds/ro-16.ogg"
+dest_files=[ "res://.import/ro-16.ogg-6788c6c4cb36e3014e5a50177b3ebdd2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

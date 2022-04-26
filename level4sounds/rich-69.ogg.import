@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rich-69.ogg-8b93d2bc8133a31139c4d41a0170e568.oggstr"
+
+[deps]
+
+source_file="res://level4sounds/rich-69.ogg"
+dest_files=[ "res://.import/rich-69.ogg-8b93d2bc8133a31139c4d41a0170e568.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

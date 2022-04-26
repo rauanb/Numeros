@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ro-79.ogg-1f3b153de9fae467469864c309a33195.oggstr"
+
+[deps]
+
+source_file="res://level4sounds/ro-79.ogg"
+dest_files=[ "res://.import/ro-79.ogg-1f3b153de9fae467469864c309a33195.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

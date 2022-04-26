@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/emi-59.ogg-0980992b2e4ab40143276279b80221a4.oggstr"
+
+[deps]
+
+source_file="res://level3sounds/emi-59.ogg"
+dest_files=[ "res://.import/emi-59.ogg-0980992b2e4ab40143276279b80221a4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

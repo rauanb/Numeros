@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rich-25.ogg-fc85bbd9c8ea24865bf2dfa91ea1403c.oggstr"
+
+[deps]
+
+source_file="res://level2sounds/rich-25.ogg"
+dest_files=[ "res://.import/rich-25.ogg-fc85bbd9c8ea24865bf2dfa91ea1403c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -83,23 +83,23 @@ func check(button):
 	new_challenge()
 	
 func update_score():
-	$CenterContainer/VBoxContainer/HBoxContainer2/Label.text = "Nível: " + str(level) + "\n" + "Pontos: " + str(score)
-	
 	if score % 10 == 0:
 		level_up()
 		$audioLevelUp.play()
 		yield($audioLevelUp,"finished")
 		
+	$CenterContainer/VBoxContainer/HBoxContainer2/Label.text = "Nível: " + str(level) + "\n" + "Pontos: " + str(score)
 func level_up():
 	if level == 1:
-		audio_list = Persistent.level1
-	if level == 2:
 		audio_list = Persistent.level2
-	elif level == 3:
+	if level == 2:
 		audio_list = Persistent.level3
-	elif level == 4:
+	elif level == 3:
 		audio_list = Persistent.level4
-		
+	elif level == 4:
+		audio_list = Persistent.level5
+	
+	level += 1
 	sort_audio()
 	
 		
@@ -118,9 +118,12 @@ func get_audio_list():
 			files.append(file)
 
 	dir.list_dir_end()
+	var arquivo = File.new()
+	arquivo.open("res://aux.gd", File.WRITE)
 	for i in files.size():
-		files[i] = "res://level1sounds/" + files[i]
-	print(files)
+		files[i] = "res://level2sounds/" + files[i]
+	arquivo.store_var(str(files))
+	arquivo.close()
 
 
 func _on_PlayButton_button_up():

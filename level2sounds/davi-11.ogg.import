@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/davi-11.ogg-5bad1a0ceefe67aab0edc73e16692de9.oggstr"
+
+[deps]
+
+source_file="res://level2sounds/davi-11.ogg"
+dest_files=[ "res://.import/davi-11.ogg-5bad1a0ceefe67aab0edc73e16692de9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
