@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://ui/font50.tres" type="DynamicFont" id=2]
 [ext_resource path="res://ui/font100.tres" type="DynamicFont" id=3]
-[ext_resource path="res://ui/soundIcon.png" type="Texture" id=4]
-[ext_resource path="res://ui/soundIconH.png" type="Texture" id=5]
+[ext_resource path="res://ui/soundIconNew.png" type="Texture" id=4]
+[ext_resource path="res://ui/fx.png" type="Texture" id=6]
 [ext_resource path="res://sfx/error.wav" type="AudioStream" id=7]
 [ext_resource path="res://sfx/levelup.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/score.wav" type="AudioStream" id=9]
@@ -14,6 +14,89 @@
 
 [sub_resource type="Theme" id=1]
 default_font = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("fx:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fx:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "error"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("fx:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fx:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "score"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("fx:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("fx:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0, 1 ), Color( 0, 1, 0, 0 ) ]
+}
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -74,7 +157,6 @@ margin_bottom = 370.0
 rect_min_size = Vector2( 300, 250 )
 size_flags_horizontal = 0
 texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 870.0
@@ -171,12 +253,29 @@ stream = ExtResource( 7 )
 stream = ExtResource( 8 )
 
 [node name="Button" type="TextureButton" parent="."]
-margin_right = 203.0
-margin_bottom = 205.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 119.0
+margin_bottom = 121.0
 texture_normal = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="fx" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 0, 1, 0, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/error = SubResource( 3 )
+anims/score = SubResource( 4 )
 
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Alt1Button" to="." method="_on_Alt1Button_button_up"]

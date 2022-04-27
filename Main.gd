@@ -10,6 +10,8 @@ var correct_button = 0 # Inicitalize
 var invert = 1 # invert sign to buttons label
 var score = 0
 
+onready var anim = $AnimationPlayer
+
 func _ready():
 #	get_audio_list()
 	randomize()
@@ -24,6 +26,12 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+		
+	if $audioNum.is_playing():
+		$CenterContainer/VBoxContainer/HBoxContainer2/PlayButton.set_modulate(Color(1, 0, 0, 1))
+	else:
+		$CenterContainer/VBoxContainer/HBoxContainer2/PlayButton.set_modulate(Color(0, 0, 1, 1))
+		
 
 func new_challenge():
 	$CenterContainer/VBoxContainer/HBoxContainer2/PlayButton.emit_signal("pressed")
@@ -74,11 +82,13 @@ func check(button):
 		button.add_color_override("font_color", Color(0, 1, 0, 1))
 		score += 1
 		$audioScore.play()
+		anim.play("score")
 		yield($audioScore,"finished")
 		update_score()
 	else:
 		button.add_color_override("font_color", Color(1, 0, 0, 1))
 		$audioError.play()
+		anim.play("error")
 		yield($audioError,"finished")
 	new_challenge()
 	
@@ -127,7 +137,8 @@ func get_audio_list():
 
 
 func _on_PlayButton_button_up():
-	$audioNum.play()
+	if not $audioNum.is_playing():
+		$audioNum.play()
 
 
 func _on_Alt1Button_button_up():
